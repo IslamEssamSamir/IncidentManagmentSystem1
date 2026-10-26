@@ -18,13 +18,7 @@ public class AuthController(IAuthServices authServices) : ControllerBase
         if (authResponse is null)
             return Unauthorized("Invalid Email or Password");
         
-
-
         return Ok(authResponse);
     }
-
-
-
-
 
 }
