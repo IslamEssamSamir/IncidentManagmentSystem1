@@ -6,7 +6,7 @@ public class ResponseResult<DataType>
 {
     public DataType Data { get; set; }
 
-    public bool IsSuccess => String.IsNullOrEmpty(ErrorMessage) || Errors.Any();
+    public bool IsSuccess => String.IsNullOrEmpty(ErrorMessage) || !Errors.Any();
 
 
     public string? ErrorMessage { get; init; } 
