@@ -4,5 +4,5 @@ namespace IncidentManagmentSystem1.API.Authentication;
 
 public interface IJwtProvider
 {
-    Task<(string token, int expiresIn)> GenerateToken(ApplicationUser user);
+    Task<(string token, int expiresIn)> GenerateTokenAsync(ApplicationUser user);
 }

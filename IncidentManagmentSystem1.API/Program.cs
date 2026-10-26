@@ -2,6 +2,7 @@ using IncidentManagmentSystem1.API.Authentication;
 using IncidentManagmentSystem1.API.Core.Models;
 using IncidentManagmentSystem1.API.Data;
 using IncidentManagmentSystem1.API.Seeds;
+using IncidentManagmentSystem1.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -105,6 +106,7 @@ var jwtSettings = builder.Configuration.GetSection(JwtOptions.SectionName).Get<J
 // Assign Services : 
 
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IAuthServices, AuthServices>();
 
 
 

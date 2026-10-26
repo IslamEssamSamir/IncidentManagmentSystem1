@@ -12,7 +12,7 @@ public class JwtProvider(IOptions<JwtOptions> jwtOptions, UserManager<Applicatio
     private readonly JwtOptions _jwtOptions = jwtOptions.Value;
     private readonly UserManager<ApplicationUser> _userManager = userManager;
 
-    public async Task<(string token, int expiresIn)> GenerateToken(ApplicationUser user)
+    public async Task<(string token, int expiresIn)> GenerateTokenAsync(ApplicationUser user)
     {
 
 
