@@ -1,4 +1,4 @@
-﻿namespace IncidentManagmentSystem1.API.Core.DTOs;
+﻿namespace IncidentManagmentSystem1.API.Core.DTOs.Auth;
 
 public class AuthResponse
 {

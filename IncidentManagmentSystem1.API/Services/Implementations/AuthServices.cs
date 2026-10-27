@@ -1,7 +1,9 @@
 ﻿using IncidentManagmentSystem1.API.Authentication;
-using IncidentManagmentSystem1.API.Core.DTOs;
+using IncidentManagmentSystem1.API.Core.DTOs.Auth;
+using IncidentManagmentSystem1.API.Core.DTOs.GenericDTOs;
+using IncidentManagmentSystem1.API.Services.Interfaces;
 
-namespace IncidentManagmentSystem1.API.Services;
+namespace IncidentManagmentSystem1.API.Services.Implementations;
 
 public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvider jwtProvider) : IAuthServices
 {
@@ -10,17 +12,17 @@ public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvide
 
 
 
-    public async Task<AuthResponse?> GetTokenAsync(string email, string password, CancellationToken cancellationToken = default)
+    public async Task<ResponseResult<AuthResponse>?> GetTokenAsync(string email, string password, CancellationToken cancellationToken = default)
     {
         var user = await _userManager.FindByEmailAsync(email);
         if (user is null)
-            return null;
+            return ResponseResult<AuthResponse>.FailureError("Invalid Email or Password", HttpStatusCode.Unauthorized);
 
 
         var isPasswordCorrect = await _userManager.CheckPasswordAsync(user, password);
 
         if(!isPasswordCorrect) 
-            return null;
+            return ResponseResult<AuthResponse>.FailureError("Invalid Email or Password", HttpStatusCode.Unauthorized);
 
 
         var (token, expireIn) = await _jwtProvider.GenerateTokenAsync(user);
@@ -38,6 +40,8 @@ public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvide
 
         };
 
-        return authResponse;
+        ResponseResult<AuthResponse> responseResult = ResponseResult<AuthResponse>.Success(authResponse);
+
+        return responseResult;
     }
 }

@@ -6,4 +6,5 @@ global using Microsoft.EntityFrameworkCore;
 global using IncidentManagmentSystem1.API.Core.Models;
 global using IncidentManagmentSystem1.API.Data;
 global using Microsoft.AspNetCore.Authorization;
+global using System.Net;
 
