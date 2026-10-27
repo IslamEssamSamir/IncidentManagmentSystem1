@@ -7,4 +7,7 @@ public interface IAuthServices
 {
     public Task<ResponseResult<AuthResponse>?> GetTokenAsync(string Email, string password, CancellationToken cancellationToken = default);
 
+
+   
+
 }

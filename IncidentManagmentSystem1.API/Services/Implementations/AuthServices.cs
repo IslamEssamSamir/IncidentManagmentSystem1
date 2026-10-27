@@ -1,16 +1,17 @@
-﻿using IncidentManagmentSystem1.API.Authentication;
+﻿using AutoMapper;
+using IncidentManagmentSystem1.API.Authentication;
+using IncidentManagmentSystem1.API.Core.DTOs.Account;
 using IncidentManagmentSystem1.API.Core.DTOs.Auth;
 using IncidentManagmentSystem1.API.Core.DTOs.GenericDTOs;
 using IncidentManagmentSystem1.API.Services.Interfaces;
 
 namespace IncidentManagmentSystem1.API.Services.Implementations;
 
-public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvider jwtProvider) : IAuthServices
+public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvider jwtProvider , IMapper mapper) : IAuthServices
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly IJwtProvider _jwtProvider = jwtProvider;
-
-
+    private readonly IMapper _mapper = mapper;
 
     public async Task<ResponseResult<AuthResponse>?> GetTokenAsync(string email, string password, CancellationToken cancellationToken = default)
     {
@@ -44,4 +45,14 @@ public class AuthServices(UserManager<ApplicationUser> userManager , IJwtProvide
 
         return responseResult;
     }
+
+    
+
+    public Task<ResponseResult<ProfileResponse>> EditProfileAsync(EditUserProfileRequest request, CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
+
+   
+
 }

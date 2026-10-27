@@ -116,6 +116,7 @@ builder.Services.AddAutoMapper(cfg => { }, typeof(MappingProfile).Assembly);
 
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddScoped<IAuthServices, AuthServices>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
 
 builder.Services.AddScoped<IFileServices, FileServices>();
 
