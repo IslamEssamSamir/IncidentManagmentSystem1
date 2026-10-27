@@ -10,7 +10,7 @@ namespace IncidentManagmentSystem1.API.Controllers;
 [Authorize]
 [Route("api/[controller]")]
 [ApiController]
-public class AccountController(IAccountServices accountServices) : ControllerBase
+public class AccountsController(IAccountServices accountServices) : ControllerBase
 {
     private readonly IAccountServices _accountServices = accountServices;
 

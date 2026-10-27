@@ -1,4 +1,4 @@
-﻿namespace IncidentManagmentSystem1.API.Core.DTOs.Auth;
+﻿namespace IncidentManagmentSystem1.API.Core.DTOs.User;
 
 public class RegisterRequest
 {

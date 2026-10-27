@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using IncidentManagmentSystem1.API.Core.DTOs.Account;
-using IncidentManagmentSystem1.API.Core.DTOs.Auth;
+using IncidentManagmentSystem1.API.Core.DTOs.User;
 
 namespace IncidentManagmentSystem1.API.Core.Mapping;
 
@@ -24,6 +24,9 @@ public class MappingProfile : Profile
         CreateMap<ApplicationUser, ProfileResponse>()
              .ForMember(dest => dest.Role, opt => opt.Ignore())
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => Path.Combine(HostingDomain.ApplicationDomain, src.ImageUrl!)));
+
+
+        CreateMap<EditUserProfileRequest, ApplicationUser>();
 
 
 

@@ -30,4 +30,8 @@
     <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Accounts\" />
+  </ItemGroup>
+
 </Project>

@@ -51,7 +51,7 @@ public class AccountServices(UserManager<ApplicationUser> userManager, IMapper m
             {
                 Dictionary<string, string[]> Errors = new();
 
-                Errors.Add(nameof(EditUserProfileRequest.Image), ["Image is not Valid!"]);
+                Errors.Add(nameof(EditUserProfileRequest.Image), [errorMessage??"Image is not Valid!"]);
                 return ResponseResult<ProfileResponse>.FailureErrors(Errors, HttpStatusCode.BadRequest);
              
             }
